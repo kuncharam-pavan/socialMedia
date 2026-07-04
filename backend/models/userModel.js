@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
     }],
-    role:{type:String,enum:["user","admin"],default:"user"},
+    role:{type:String,enum:["user","admin","manager"],default:"user"},
     
 },{timestamps:true} )
 
