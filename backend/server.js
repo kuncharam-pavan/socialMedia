@@ -7,7 +7,7 @@ connectDb();
 
 // middleware
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 
 
