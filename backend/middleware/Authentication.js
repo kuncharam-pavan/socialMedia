@@ -4,24 +4,28 @@ require("dotenv").config()
 exports.Authentication = async(req,res,next)=>{
         try {
             const {authorization} = req.headers
-            console.log(authorization);
+            // console.log(authorization);
             const token  = await authorization.split(" ")[1]
-            console.log(token);
+            // console.log(token);
             
             const verify =  await jwt.verify(token,process.env.secreteKey)
             if(!verify){
                 return res.send("in valid token ")
             }
-            const user_data = await User.findById({id:verify.id})
-            console.log(user_data);
+            // console.log(verify.id);
             
+            
+            const user_data = await User.findById(verify.id).select("-createdAt -updatedAt -__v")
+            // console.log(user_data);
+            
+            //   console.log("token verification done");
             req.user = user_data
             next()
             
         } catch (error) {
             return res.status(401).json({
                      success: false,
-                     message: "Invalid or expired token"
+                     message: error.message
             });
         }
 } 
