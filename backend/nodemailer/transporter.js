@@ -1,5 +1,8 @@
 const nodemailer = require("nodemailer")
 require("dotenv").config()
+
+// nodemailer
+
 const transporter = nodemailer.createTransport({
     service:"gmail",
     auth:{
@@ -11,3 +14,9 @@ const transporter = nodemailer.createTransport({
     }
 })
 module.exports = transporter
+
+
+
+
+
+

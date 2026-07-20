@@ -23,3 +23,29 @@ app.get("/",(req,res)=>{
     res.send("i am healthy")
 })
 app.listen(process.env.PORT,()=>{console.log(`server started at ${process.env.PORT}`)})
+
+
+
+
+
+// require("dotenv").config();
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+
+// const app = express();
+
+// app.use(express.json());
+
+// mongoose
+// .connect(process.env.mongoUri)
+// .then(() => console.log("MongoDB Connected"))
+// .catch(err => console.log(err));
+
+// app.use("/users", require("./routes/userRoutes"));
+
+// app.listen(process.env.PORT, () => {
+
+//     console.log(`Server Running on ${process.env.PORT}`);
+
+// });
